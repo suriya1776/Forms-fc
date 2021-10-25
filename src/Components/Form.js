@@ -17,15 +17,11 @@ function Form() {
   }
 
   const { student } = formdata
-  console.log(
-    student.map((student) => {
-      return student.type[0]
-    })
-  )
+
   return (
     <div>
       {student.map((student) => {
-        const { name, type } = student
+        const { type } = student
         return type.map((type) => {
           return (
             <div>
