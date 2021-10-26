@@ -1,3 +1,7 @@
-.Form_heading {
-  color: aqua;
+.form_heading {
+  text-align: center;
+}
+.btn {
+  display: block;
+  margin: 1rem auto;
 }
