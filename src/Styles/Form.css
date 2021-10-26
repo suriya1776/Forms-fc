@@ -5,3 +5,7 @@
   display: block;
   margin: 1rem auto;
 }
+
+.below_form {
+  border-bottom: solid 2px rgb(71, 71, 141);
+}
