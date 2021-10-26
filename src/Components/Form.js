@@ -1,27 +1,31 @@
 import React from 'react'
-import { useState } from 'react/cjs/react.development'
+import { useState, useEffect } from 'react/cjs/react.development'
 
 import '../Styles/Form.css'
 
 function Form() {
+  const [remove, setRemove] = useState(true)
   const [studentData, setStudentData] = useState([
     {
       type: 'text',
       value: 'Firstname',
       classname: 'w-40 mx-2 p-3',
       fieldvalue: 'Enter your firstname',
+      error: '',
     },
     {
       type: 'text',
       value: 'Secondname',
       classname: 'w-30 mx-2 p-3',
       fieldvalue: 'Enter your Secondname',
+      error: '',
     },
     {
       type: 'text',
       value: 'Lastname',
       classname: 'w-30 mx-2 p-3',
       fieldvalue: 'Enter your Lastname',
+      error: '',
     },
 
     {
@@ -29,6 +33,7 @@ function Form() {
       value: 'Email',
       classname: 'w-100 mx-2 p-3',
       fieldvalue: 'Enter your email',
+      error: '',
     },
 
     {
@@ -36,18 +41,21 @@ function Form() {
       value: 'Phonenumber',
       classname: 'w-50 mx-2 p-3',
       fieldvalue: 'Enter your phone number',
+      error: '',
     },
     {
       type: 'text',
       value: 'Birthdate',
       classname: 'w-50 mx-2 p-3',
       fieldvalue: '',
+      error: '',
     },
     {
       type: 'text',
       value: 'Ethnicity',
       classname: 'w-50 mx-2 p-3',
       fieldvalue: '',
+      error: '',
     },
 
     {
@@ -55,6 +63,7 @@ function Form() {
       value: 'Gender',
       classname: 'w-30 mx-2 p-3',
       fieldvalue: '',
+      error: '',
     },
 
     {
@@ -62,6 +71,7 @@ function Form() {
       value: 'StudentID',
       classname: 'w-100 mx-2 p-3',
       fieldvalue: 'ID',
+      error: '',
     },
 
     {
@@ -69,6 +79,7 @@ function Form() {
       value: 'Semester',
       classname: 'w-100 mx-2 p-3 below_form',
       fieldvalue: '',
+      error: '',
     },
   ])
 
@@ -76,8 +87,39 @@ function Form() {
     const values = [...studentData]
     values[index].fieldvalue = e.target.value
     setStudentData(values)
-    console.log(studentData)
+
+    if (e.target.value === '') {
+      const values = [...studentData]
+      values[index].error = 'enter the valid answer'
+      setStudentData(values)
+    } else {
+      const values = [...studentData]
+      values[index].error = ''
+      setStudentData(values)
+    }
+    if (e.target.id === 'Email') {
+      var emailCheck =
+        /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i
+      if (emailCheck.test(`${e.target.value}`)) {
+        const values = [...studentData]
+        values[index].error = ''
+        setStudentData(values)
+      } else {
+        const values = [...studentData]
+        values[index].error = 'enter the valid email'
+        setStudentData(values)
+      }
+    }
   }
+
+  useEffect(() => {
+    if (studentData.length > 10) {
+      setRemove(false)
+    } else {
+      setRemove(true)
+    }
+  }, [studentData])
+
   const AddHandler = () => {
     setStudentData([
       ...studentData,
@@ -154,6 +196,14 @@ function Form() {
     console.log(studentData)
   }
 
+  const RemoveHandler = (e) => {
+    const values1 = [...studentData]
+    if (values1.length > 10) {
+      values1.splice(values1.length - 10, 10)
+      setStudentData(values1)
+    }
+  }
+
   return (
     <div className='row g-3'>
       <div className='w-100'>
@@ -173,10 +223,22 @@ function Form() {
               value={type.fieldvalue}
               onChange={(e) => ChangeHandler(e, sIndex)}
             ></input>
+            <p className='error_text'>{type.error}</p>
           </div>
         )
       })}
+
       <div className='w-100'>
+        {remove ? null : (
+          <button
+            type='button'
+            className='btn btn-primary '
+            onClick={(e) => RemoveHandler(e)}
+          >
+            Remove Person
+          </button>
+        )}
+
         <button
           type='button'
           className='btn btn-primary '

@@ -9,3 +9,7 @@
 .below_form {
   border-bottom: solid 2px rgb(71, 71, 141);
 }
+
+.error_text {
+  color: rgb(245, 48, 48);
+}
