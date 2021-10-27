@@ -6,8 +6,10 @@ import '../Styles/Form.css'
 function Form() {
   const [remove, setRemove] = useState(true)
   const [submit, setSubmit] = useState(true)
+  const [id, setId] = useState([1])
   const [studentData, setStudentData] = useState([
     {
+      id: 0,
       type: 'text',
       value: 'Firstname',
       classname: 'w-40 mx-2 p-3',
@@ -15,6 +17,7 @@ function Form() {
       error: '',
     },
     {
+      id: 0,
       type: 'text',
       value: 'Secondname',
       classname: 'w-30 mx-2 p-3',
@@ -22,6 +25,7 @@ function Form() {
       error: '',
     },
     {
+      id: 0,
       type: 'text',
       value: 'Lastname',
       classname: 'w-30 mx-2 p-3',
@@ -30,6 +34,7 @@ function Form() {
     },
 
     {
+      id: 0,
       type: 'email',
       value: 'Email',
       classname: 'w-100 mx-2 p-3',
@@ -38,6 +43,7 @@ function Form() {
     },
 
     {
+      id: 0,
       type: 'text',
       value: 'Phonenumber',
       classname: 'w-50 mx-2 p-3',
@@ -45,6 +51,7 @@ function Form() {
       error: '',
     },
     {
+      id: 0,
       type: 'text',
       value: 'Birthdate',
       classname: 'w-50 mx-2 p-3',
@@ -52,6 +59,7 @@ function Form() {
       error: '',
     },
     {
+      id: 0,
       type: 'text',
       value: 'Ethnicity',
       classname: 'w-50 mx-2 p-3',
@@ -60,6 +68,7 @@ function Form() {
     },
 
     {
+      id: 0,
       type: 'text',
       value: 'Gender',
       classname: 'w-30 mx-2 p-3',
@@ -68,6 +77,7 @@ function Form() {
     },
 
     {
+      id: 0,
       type: 'text',
       value: 'StudentID',
       classname: 'w-100 mx-2 p-3',
@@ -76,6 +86,7 @@ function Form() {
     },
 
     {
+      id: 0,
       type: 'text',
       value: 'Semester',
       classname: 'w-100 mx-2 p-3 below_form',
@@ -87,6 +98,7 @@ function Form() {
   const ChangeHandler = (e, index) => {
     const values = [...studentData]
     values[index].fieldvalue = e.target.value
+
     setStudentData(values)
 
     if (e.target.value === '') {
@@ -100,7 +112,7 @@ function Form() {
       setStudentData(values)
       setSubmit(true)
     }
-    if (e.target.id === 'Email') {
+    if (e.target.name === 'Email') {
       var emailCheck =
         /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i
       if (emailCheck.test(`${e.target.value}`)) {
@@ -126,21 +138,33 @@ function Form() {
   }, [studentData])
 
   const AddHandler = () => {
+    let id_count = [...id]
+
+    id_count.push(id_count.length + 1)
+
+    setId(id_count)
+
+    console.log(id[0])
+
     setStudentData([
       ...studentData,
+
       {
+        id: id.slice(-1)[0],
         type: 'text',
         value: 'Firstname',
         classname: 'w-40 mx-2 p-3',
         fieldvalue: 'Enter your firstname',
       },
       {
+        id: id.slice(-1)[0],
         type: 'text',
         value: 'Secondname',
         classname: 'w-30 mx-2 p-3',
         fieldvalue: 'Enter your Secondname',
       },
       {
+        id: id.slice(-1)[0],
         type: 'text',
         value: 'Lastname',
         classname: 'w-30 mx-2 p-3',
@@ -148,6 +172,7 @@ function Form() {
       },
 
       {
+        id: id.slice(-1)[0],
         type: 'email',
         value: 'Email',
         classname: 'w-100 mx-2 p-3',
@@ -155,18 +180,21 @@ function Form() {
       },
 
       {
+        id: id.slice(-1)[0],
         type: 'text',
         value: 'Phonenumber',
         classname: 'w-50 mx-2 p-3',
         fieldvalue: 'Enter your phone number',
       },
       {
+        id: id.slice(-1)[0],
         type: 'text',
         value: 'Birthdate',
         classname: 'w-50 mx-2 p-3',
         fieldvalue: '',
       },
       {
+        id: id.slice(-1)[0],
         type: 'text',
         value: 'Ethnicity',
         classname: 'w-50 mx-2 p-3',
@@ -174,6 +202,7 @@ function Form() {
       },
 
       {
+        id: id.slice(-1)[0],
         type: 'text',
         value: 'Gender',
         classname: 'w-30 mx-2 p-3',
@@ -181,6 +210,7 @@ function Form() {
       },
 
       {
+        id: id.slice(-1)[0],
         type: 'text',
         value: 'StudentID',
         classname: 'w-100 mx-2 p-3',
@@ -188,6 +218,7 @@ function Form() {
       },
 
       {
+        id: id.slice(-1)[0],
         type: 'text',
         value: 'Semester',
         classname: 'w-100 mx-2 p-3 below_form',
@@ -205,7 +236,15 @@ function Form() {
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(studentData),
+        body: JSON.stringify(
+          studentData.map((studentData) => {
+            return {
+              id: studentData.id,
+              value: studentData.value,
+              fieldvalue: studentData.fieldvalue,
+            }
+          })
+        ),
       })
         .then((response) => {
           console.log(response)
@@ -239,7 +278,8 @@ function Form() {
             <input
               type={type.type}
               className='form-control'
-              id={type.value}
+              name={type.value}
+              // id={id}
               value={type.fieldvalue}
               onChange={(e) => ChangeHandler(e, sIndex)}
             ></input>

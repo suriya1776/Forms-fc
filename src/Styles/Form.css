@@ -13,3 +13,9 @@
 .error_text {
   color: rgb(245, 48, 48);
 }
+
+.top_area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

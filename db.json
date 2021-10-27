@@ -2,146 +2,154 @@
   "studentsdata": [
     [
       {
-        "type": "text",
+        "id": 0,
         "value": "Firstname",
-        "classname": "w-40 mx-2 p-3",
-        "fieldvalue": "Enter your firstname",
-        "error": ""
+        "fieldvalue": "Enter your firstname"
       },
       {
-        "type": "text",
+        "id": 0,
         "value": "Secondname",
-        "classname": "w-30 mx-2 p-3",
-        "fieldvalue": "Enter your Secondname",
-        "error": ""
+        "fieldvalue": "Enter your Secondname"
       },
       {
-        "type": "text",
+        "id": 0,
         "value": "Lastname",
-        "classname": "w-30 mx-2 p-3",
-        "fieldvalue": "Enter your Lastname",
-        "error": ""
+        "fieldvalue": "Enter your Lastname"
       },
       {
-        "type": "email",
+        "id": 0,
         "value": "Email",
-        "classname": "w-100 mx-2 p-3",
-        "fieldvalue": "Enter your email",
-        "error": ""
+        "fieldvalue": "Enter your email"
       },
       {
-        "type": "text",
+        "id": 0,
         "value": "Phonenumber",
-        "classname": "w-50 mx-2 p-3",
-        "fieldvalue": "Enter your phone number",
-        "error": ""
+        "fieldvalue": "Enter your phone number"
       },
       {
-        "type": "text",
+        "id": 0,
         "value": "Birthdate",
-        "classname": "w-50 mx-2 p-3",
-        "fieldvalue": "",
-        "error": ""
+        "fieldvalue": ""
       },
       {
-        "type": "text",
+        "id": 0,
         "value": "Ethnicity",
-        "classname": "w-50 mx-2 p-3",
-        "fieldvalue": "",
-        "error": ""
+        "fieldvalue": ""
       },
       {
-        "type": "text",
+        "id": 0,
         "value": "Gender",
-        "classname": "w-30 mx-2 p-3",
-        "fieldvalue": "",
-        "error": ""
+        "fieldvalue": ""
       },
       {
-        "type": "text",
+        "id": 0,
         "value": "StudentID",
-        "classname": "w-100 mx-2 p-3",
-        "fieldvalue": "ID",
-        "error": ""
+        "fieldvalue": "ID"
       },
       {
-        "type": "text",
+        "id": 0,
         "value": "Semester",
-        "classname": "w-100 mx-2 p-3 below_form",
-        "fieldvalue": "",
-        "error": ""
-      }
-    ],
-    [
+        "fieldvalue": ""
+      },
       {
-        "type": "text",
+        "id": 1,
         "value": "Firstname",
-        "classname": "w-40 mx-2 p-3",
-        "fieldvalue": "Enter your firstname",
-        "error": ""
+        "fieldvalue": "Enter your firstname"
       },
       {
-        "type": "text",
+        "id": 1,
         "value": "Secondname",
-        "classname": "w-30 mx-2 p-3",
-        "fieldvalue": "Enter your Secondname",
-        "error": ""
+        "fieldvalue": "Enter your Secondname"
       },
       {
-        "type": "text",
+        "id": 1,
         "value": "Lastname",
-        "classname": "w-30 mx-2 p-3",
-        "fieldvalue": "Enter your Lastname",
-        "error": ""
+        "fieldvalue": "Enter your Lastname"
       },
       {
-        "type": "email",
+        "id": 1,
         "value": "Email",
-        "classname": "w-100 mx-2 p-3",
-        "fieldvalue": "Enter your email",
-        "error": ""
+        "fieldvalue": "Enter your email"
       },
       {
-        "type": "text",
+        "id": 1,
         "value": "Phonenumber",
-        "classname": "w-50 mx-2 p-3",
-        "fieldvalue": "Enter your phone number",
-        "error": ""
+        "fieldvalue": "Enter your phone number"
       },
       {
-        "type": "text",
+        "id": 1,
         "value": "Birthdate",
-        "classname": "w-50 mx-2 p-3",
-        "fieldvalue": "",
-        "error": ""
+        "fieldvalue": ""
       },
       {
-        "type": "text",
+        "id": 1,
         "value": "Ethnicity",
-        "classname": "w-50 mx-2 p-3",
-        "fieldvalue": "",
-        "error": ""
+        "fieldvalue": ""
       },
       {
-        "type": "text",
+        "id": 1,
         "value": "Gender",
-        "classname": "w-30 mx-2 p-3",
-        "fieldvalue": "",
-        "error": ""
+        "fieldvalue": ""
       },
       {
-        "type": "text",
+        "id": 1,
         "value": "StudentID",
-        "classname": "w-100 mx-2 p-3",
-        "fieldvalue": "ID",
-        "error": ""
+        "fieldvalue": "ID"
       },
       {
-        "type": "text",
+        "id": 1,
         "value": "Semester",
-        "classname": "w-100 mx-2 p-3 below_form",
-        "fieldvalue": "",
-        "error": ""
+        "fieldvalue": ""
+      },
+      {
+        "id": 2,
+        "value": "Firstname",
+        "fieldvalue": "Enter your firstname"
+      },
+      {
+        "id": 2,
+        "value": "Secondname",
+        "fieldvalue": "Enter your Secondname"
+      },
+      {
+        "id": 2,
+        "value": "Lastname",
+        "fieldvalue": "Enter your Lastname"
+      },
+      {
+        "id": 2,
+        "value": "Email",
+        "fieldvalue": "Enter your email"
+      },
+      {
+        "id": 2,
+        "value": "Phonenumber",
+        "fieldvalue": "Enter your phone number"
+      },
+      {
+        "id": 2,
+        "value": "Birthdate",
+        "fieldvalue": ""
+      },
+      {
+        "id": 2,
+        "value": "Ethnicity",
+        "fieldvalue": ""
+      },
+      {
+        "id": 2,
+        "value": "Gender",
+        "fieldvalue": ""
+      },
+      {
+        "id": 2,
+        "value": "StudentID",
+        "fieldvalue": "ID"
+      },
+      {
+        "id": 2,
+        "value": "Semester",
+        "fieldvalue": ""
       }
     ]
   ]
