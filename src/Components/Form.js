@@ -5,6 +5,7 @@ import '../Styles/Form.css'
 
 function Form() {
   const [remove, setRemove] = useState(true)
+  const [submit, setSubmit] = useState(true)
   const [studentData, setStudentData] = useState([
     {
       type: 'text',
@@ -90,12 +91,14 @@ function Form() {
 
     if (e.target.value === '') {
       const values = [...studentData]
-      values[index].error = 'enter the valid answer'
+      values[index].error = 'enter a valid answer'
       setStudentData(values)
+      setSubmit(false)
     } else {
       const values = [...studentData]
       values[index].error = ''
       setStudentData(values)
+      setSubmit(true)
     }
     if (e.target.id === 'Email') {
       var emailCheck =
@@ -104,10 +107,12 @@ function Form() {
         const values = [...studentData]
         values[index].error = ''
         setStudentData(values)
+        setSubmit(false)
       } else {
         const values = [...studentData]
-        values[index].error = 'enter the valid email'
+        values[index].error = 'enter a valid email'
         setStudentData(values)
+        setSubmit(true)
       }
     }
   }
@@ -190,10 +195,25 @@ function Form() {
       },
     ])
   }
-
-  const submitHandler = (e) => {
+  const url = `http://localhost:4000/studentsdata`
+  const submitHandler = async (e) => {
     e.preventDefault()
-    console.log(studentData)
+    if (submit) {
+      await fetch(url, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(studentData),
+      })
+        .then((response) => {
+          console.log(response)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
   }
 
   const RemoveHandler = (e) => {
