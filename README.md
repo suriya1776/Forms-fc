@@ -5,7 +5,7 @@
 
 ### start by clicking on 'dataentry button' and then enter your data and submit
 
-### then go on and click 'database button' tu view the data you enter
+### then go on and click 'database button' to view the data you have entered
 
 
 ### 'npm install'
