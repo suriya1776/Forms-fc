@@ -144,8 +144,6 @@ function Form() {
 
     setId(id_count)
 
-    console.log(id[0])
-
     setStudentData([
       ...studentData,
 
@@ -226,32 +224,38 @@ function Form() {
       },
     ])
   }
-  const url = `http://localhost:4000/studentsdata`
+  // const url = `http://localhost:4000/studentsdata`
   const submitHandler = async (e) => {
     e.preventDefault()
     if (submit) {
-      await fetch(url, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(
-          studentData.map((studentData) => {
-            return {
-              id: studentData.id,
-              value: studentData.value,
-              fieldvalue: studentData.fieldvalue,
-            }
-          })
-        ),
+      var myHeaders = new Headers()
+      myHeaders.append('Content-Type', 'application/json')
+
+      const id_value = studentData.map((studentData) => {
+        return studentData.id
       })
-        .then((response) => {
-          console.log(response)
+
+      var raw = JSON.stringify(
+        studentData.map((studentData) => {
+          return {
+            id: studentData.id,
+            value: studentData.value,
+            fieldvalue: studentData.fieldvalue,
+          }
         })
-        .catch((error) => {
-          console.log(error)
-        })
+      )
+
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow',
+      }
+
+      fetch(`http://localhost:4000/studentsdata?id=${id_value}`, requestOptions)
+        .then((response) => response.text())
+        .then((result) => console.log(result))
+        .catch((error) => console.log('error', error))
     }
   }
 

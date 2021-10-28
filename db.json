@@ -50,104 +50,108 @@
         "id": 0,
         "value": "Semester",
         "fieldvalue": ""
-      },
+      }
+    ],
+    [
       {
-        "id": 1,
+        "id": 0,
         "value": "Firstname",
         "fieldvalue": "Enter your firstname"
       },
       {
-        "id": 1,
+        "id": 0,
         "value": "Secondname",
         "fieldvalue": "Enter your Secondname"
       },
       {
-        "id": 1,
+        "id": 0,
         "value": "Lastname",
         "fieldvalue": "Enter your Lastname"
       },
       {
-        "id": 1,
+        "id": 0,
         "value": "Email",
         "fieldvalue": "Enter your email"
       },
       {
-        "id": 1,
+        "id": 0,
         "value": "Phonenumber",
         "fieldvalue": "Enter your phone number"
       },
       {
-        "id": 1,
+        "id": 0,
         "value": "Birthdate",
         "fieldvalue": ""
       },
       {
-        "id": 1,
+        "id": 0,
         "value": "Ethnicity",
         "fieldvalue": ""
       },
       {
-        "id": 1,
+        "id": 0,
         "value": "Gender",
         "fieldvalue": ""
       },
       {
-        "id": 1,
+        "id": 0,
         "value": "StudentID",
         "fieldvalue": "ID"
       },
       {
-        "id": 1,
+        "id": 0,
         "value": "Semester",
         "fieldvalue": ""
-      },
+      }
+    ],
+    [
       {
-        "id": 2,
+        "id": 0,
         "value": "Firstname",
         "fieldvalue": "Enter your firstname"
       },
       {
-        "id": 2,
+        "id": 0,
         "value": "Secondname",
         "fieldvalue": "Enter your Secondname"
       },
       {
-        "id": 2,
+        "id": 0,
         "value": "Lastname",
         "fieldvalue": "Enter your Lastname"
       },
       {
-        "id": 2,
+        "id": 0,
         "value": "Email",
         "fieldvalue": "Enter your email"
       },
       {
-        "id": 2,
+        "id": 0,
         "value": "Phonenumber",
         "fieldvalue": "Enter your phone number"
       },
       {
-        "id": 2,
+        "id": 0,
         "value": "Birthdate",
         "fieldvalue": ""
       },
       {
-        "id": 2,
+        "id": 0,
         "value": "Ethnicity",
         "fieldvalue": ""
       },
       {
-        "id": 2,
+        "id": 0,
         "value": "Gender",
         "fieldvalue": ""
       },
       {
-        "id": 2,
+        "id": 0,
         "value": "StudentID",
         "fieldvalue": "ID"
       },
       {
-        "id": 2,
+        "id": 0,
         "value": "Semester",
         "fieldvalue": ""
       }
