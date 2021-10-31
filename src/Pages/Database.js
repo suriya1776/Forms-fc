@@ -4,10 +4,7 @@ import api from '../Axios/Axios'
 
 function Database() {
   const [data, setData] = useState([])
-
   const url = '/studentsdata'
-
-  console.log(api)
 
   useEffect(() => {
     api
@@ -19,7 +16,6 @@ function Database() {
         console.log(err)
       })
   }, [url])
-
   return (
     <div>
       <h3 className='form_heading'>STUDENT DATA</h3>

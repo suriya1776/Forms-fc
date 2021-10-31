@@ -7,13 +7,15 @@ function Form() {
   const [remove, setRemove] = useState(true)
   const [submit, setSubmit] = useState(true)
   const [id, setId] = useState([1])
+
   const [studentData, setStudentData] = useState([
     {
       id: 0,
       type: 'text',
       value: 'Firstname',
-      classname: 'w-40 mx-2 p-3',
+      classname: 'w-50 mx-2 p-3',
       fieldvalue: 'Enter your firstname',
+      infield: '',
       error: '',
     },
     {
@@ -22,6 +24,7 @@ function Form() {
       value: 'Secondname',
       classname: 'w-30 mx-2 p-3',
       fieldvalue: 'Enter your Secondname',
+      infield: '',
       error: '',
     },
     {
@@ -30,6 +33,7 @@ function Form() {
       value: 'Lastname',
       classname: 'w-30 mx-2 p-3',
       fieldvalue: 'Enter your Lastname',
+      infield: '',
       error: '',
     },
 
@@ -39,6 +43,7 @@ function Form() {
       value: 'Email',
       classname: 'w-100 mx-2 p-3',
       fieldvalue: 'Enter your email',
+      infield: '',
       error: '',
     },
 
@@ -48,40 +53,49 @@ function Form() {
       value: 'Phonenumber',
       classname: 'w-50 mx-2 p-3',
       fieldvalue: 'Enter your phone number',
+      infield: '',
       error: '',
     },
     {
       id: 0,
-      type: 'text',
-      value: 'Birthdate',
-      classname: 'w-50 mx-2 p-3',
+      type: 'date',
+      value: 'Birthdate:',
+      classname: 'w-50 mx-4 ',
+      class: 'ml-3 w-25',
       fieldvalue: '',
+      infield: '',
+
       error: '',
     },
     {
       id: 0,
-      type: 'text',
       value: 'Ethnicity',
-      classname: 'w-50 mx-2 p-3',
+      list: 'mylist',
+      infield: '',
+      classname: 'ml-3',
+      value1: 'Indian',
+      value2: 'NRI',
+      value3: 'Foreigner',
       fieldvalue: '',
       error: '',
     },
-
     {
       id: 0,
-      type: 'text',
       value: 'Gender',
-      classname: 'w-30 mx-2 p-3',
-      fieldvalue: '',
+      list: 'mylist1',
+      infield: '',
+      classname: 'ml-3',
+      value1: 'Male',
+      value2: 'Female',
       error: '',
     },
-
     {
       id: 0,
       type: 'text',
       value: 'StudentID',
       classname: 'w-100 mx-2 p-3',
       fieldvalue: 'ID',
+      infield: '',
       error: '',
     },
 
@@ -91,15 +105,17 @@ function Form() {
       value: 'Semester',
       classname: 'w-100 mx-2 p-3 below_form',
       fieldvalue: '',
+      infield: '',
       error: '',
     },
   ])
 
   const ChangeHandler = (e, index) => {
     const values = [...studentData]
-    values[index].fieldvalue = e.target.value
+    values[index].infield = e.target.value
 
     setStudentData(values)
+    console.log(e)
 
     if (e.target.value === '') {
       const values = [...studentData]
@@ -153,6 +169,7 @@ function Form() {
         value: 'Firstname',
         classname: 'w-40 mx-2 p-3',
         fieldvalue: 'Enter your firstname',
+        infield: '',
       },
       {
         id: id.slice(-1)[0],
@@ -160,6 +177,7 @@ function Form() {
         value: 'Secondname',
         classname: 'w-30 mx-2 p-3',
         fieldvalue: 'Enter your Secondname',
+        infield: '',
       },
       {
         id: id.slice(-1)[0],
@@ -167,6 +185,7 @@ function Form() {
         value: 'Lastname',
         classname: 'w-30 mx-2 p-3',
         fieldvalue: 'Enter your Lastname',
+        infield: '',
       },
 
       {
@@ -175,6 +194,7 @@ function Form() {
         value: 'Email',
         classname: 'w-100 mx-2 p-3',
         fieldvalue: 'Enter your email',
+        infield: '',
       },
 
       {
@@ -183,35 +203,48 @@ function Form() {
         value: 'Phonenumber',
         classname: 'w-50 mx-2 p-3',
         fieldvalue: 'Enter your phone number',
+        infield: '',
       },
       {
         id: id.slice(-1)[0],
-        type: 'text',
-        value: 'Birthdate',
-        classname: 'w-50 mx-2 p-3',
+        type: 'date',
+        value: 'Birthdate:',
+        classname: 'w-50 mx-2',
+        class: 'ml-3 w-25',
         fieldvalue: '',
+        infield: '',
+
+        error: '',
       },
+
       {
         id: id.slice(-1)[0],
-        type: 'text',
         value: 'Ethnicity',
-        classname: 'w-50 mx-2 p-3',
+        list: 'mylist',
+        infield: '',
+        classname: 'ml-3',
+        value1: 'Indian',
+        value2: 'NRI',
+        value3: 'Foreigner',
         fieldvalue: '',
+        error: '',
       },
-
       {
         id: id.slice(-1)[0],
-        type: 'text',
         value: 'Gender',
-        classname: 'w-30 mx-2 p-3',
-        fieldvalue: '',
+        list: 'mylist1',
+        infield: '',
+        classname: 'ml-3',
+        value1: 'Male',
+        value2: 'Female',
+        error: '',
       },
-
       {
         id: id.slice(-1)[0],
         type: 'text',
         value: 'StudentID',
         classname: 'w-100 mx-2 p-3',
+        infield: '',
         fieldvalue: 'ID',
       },
 
@@ -220,6 +253,7 @@ function Form() {
         type: 'text',
         value: 'Semester',
         classname: 'w-100 mx-2 p-3 below_form',
+        infield: '',
         fieldvalue: '',
       },
     ])
@@ -227,23 +261,25 @@ function Form() {
   // const url = `http://localhost:4000/studentsdata`
   const submitHandler = async (e) => {
     e.preventDefault()
+
     if (submit) {
       var myHeaders = new Headers()
       myHeaders.append('Content-Type', 'application/json')
 
-      const id_value = studentData.map((studentData) => {
-        return studentData.id
-      })
-
+      // const id_value = studentData.map((studentData) => {
+      //   return studentData.id
+      // })
+      console.log(studentData)
+      console.log(submit)
       var raw = JSON.stringify(
         studentData.map((studentData) => {
           return {
-            id: studentData.id,
             value: studentData.value,
-            fieldvalue: studentData.fieldvalue,
+            fieldvalue: studentData.infield,
           }
         })
       )
+      console.log(raw)
 
       var requestOptions = {
         method: 'POST',
@@ -252,7 +288,7 @@ function Form() {
         redirect: 'follow',
       }
 
-      fetch(`http://localhost:4000/studentsdata?id=${id_value}`, requestOptions)
+      fetch('http://localhost:4000/studentsdata', requestOptions)
         .then((response) => response.text())
         .then((result) => console.log(result))
         .catch((error) => console.log('error', error))
@@ -280,13 +316,21 @@ function Form() {
               {type.value}
             </label>
             <input
+              list={type.list}
+              id={type.id}
               type={type.type}
-              className='form-control'
+              className={` form-control`}
               name={type.value}
-              // id={id}
-              value={type.fieldvalue}
+              placeholder={type.fieldvalue}
+              selectBoxOptions={type.selectBoxOptions}
               onChange={(e) => ChangeHandler(e, sIndex)}
             ></input>
+            <datalist id={type.list}>
+              <option value={type.value1} />
+              <option value={type.value2} />
+              <option value={type.value3} />
+            </datalist>
+
             <p className='error_text'>{type.error}</p>
           </div>
         )
